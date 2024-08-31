@@ -3,12 +3,12 @@ import { Measure } from "./Measure";
 
 @Entity("customers")
 export class Customer {
-  @PrimaryGeneratedColumn()
-  id: number;
+  @PrimaryGeneratedColumn("uuid")
+  id: string;
 
   @Column({ type: "text" })
   customer_code: string;
 
-  @OneToMany(() => Measure, measure => measure.customer)
+  @OneToMany(() => Measure, (measure) => measure.customer)
   measurements: Measure[];
 }
